@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -24,8 +23,8 @@ class UserController extends Controller
             'password' => bcrypt($fields['password']),
         ]);
 
-        return view('user.pages.auth.login');
-
+        return redirect()->route('task.create')
+            ->with('success', 'Logged In Successfully');
     }
 
     public function login(Request $request)
@@ -43,7 +42,8 @@ class UserController extends Controller
             return back()->with('error', 'Bad credentials');
         }
 
-        return response($user);
+        return redirect()->route('task.create')
+            ->with('success', 'Logged In Successfully');
     }
 
     public function logout(Request $request)
