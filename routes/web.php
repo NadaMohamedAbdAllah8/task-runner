@@ -29,11 +29,13 @@ Route::get('login', function () {
 Route::post('/login-user', [UserController::class, 'login'])->name('login-user');
 
 Route::group(['middleware' => ['auth:user']], function () {
+
     Route::post('/logout-user', [UserController::class, 'logout']);
 
     Route::group(['prefix' => 'task', 'as' => 'task.'], function () {
+
         Route::get('create', [TaskController::class, 'create'])->name('create');
-        //'TaskController@create');
-        Route::get('store', [TaskController::class, 'store']);
+
+        Route::get('store', [TaskController::class, 'store'])->name('store');
     });
 });
