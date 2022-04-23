@@ -23,8 +23,16 @@ class UserController extends Controller
             'password' => bcrypt($fields['password']),
         ]);
 
-        return redirect()->route('task.create')
-            ->with('success', 'Logged In Successfully');
+        if (Auth::guard('user')->attempt(['name' => request('name'),
+            'password' => request('password')])) {
+
+            return redirect()->route('task.create')
+                ->with('success', 'Logged In Successfully');
+
+        } else {
+            return back()->with('error', 'Bad credentials');
+        }
+
     }
 
     public function login(Request $request)
@@ -42,8 +50,16 @@ class UserController extends Controller
             return back()->with('error', 'Bad credentials');
         }
 
-        return redirect()->route('task.create')
-            ->with('success', 'Logged In Successfully');
+        if (Auth::guard('user')->attempt(['name' => request('name'),
+            'password' => request('password')])) {
+
+            return redirect()->route('task.create')
+                ->with('success', 'Logged In Successfully');
+
+        } else {
+            return back()->with('error', 'Bad credentials');
+        }
+
     }
 
     public function logout(Request $request)
