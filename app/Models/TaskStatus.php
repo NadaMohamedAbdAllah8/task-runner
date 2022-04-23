@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class TaskStatus extends Model
 {
     use HasFactory;
 
@@ -15,15 +15,10 @@ class Project extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id',
+        'status',
     ];
 
-    public function userProjects()
-    {
-        return $this->hasMany(UserProjects::class);
-    }
-
-    public function tasks()
+    public function task()
     {
         return $this->hasMany(Task::class);
     }
