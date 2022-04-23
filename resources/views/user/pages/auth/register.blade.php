@@ -1,7 +1,7 @@
 @extends('user.layouts.master')
 
 @section('title')
-{{ $title??'Register' }}
+{{ $title ??'Register' }}
 @endsection
 
 @section('content')
