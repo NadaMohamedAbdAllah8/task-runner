@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +30,10 @@ Route::post('/login-user', [UserController::class, 'login'])->name('login-user')
 
 Route::group(['middleware' => ['auth:user']], function () {
     Route::post('/logout-user', [UserController::class, 'logout']);
+
+    Route::group(['prefix' => 'task', 'as' => 'task.'], function () {
+        Route::get('create', [TaskController::class, 'create'])->name('create');
+        //'TaskController@create');
+        Route::get('store', [TaskController::class, 'store']);
+    });
 });
