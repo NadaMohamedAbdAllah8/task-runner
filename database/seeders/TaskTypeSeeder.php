@@ -19,15 +19,15 @@ class TaskTypeSeeder extends Seeder
                 [
                     array(
                         'id' => 1,
-                        'name' => 'count words',
+                        'type' => 'count words',
                     ),
                     array(
                         'id' => 2,
-                        'name' => 'count characters',
+                        'type' => 'count characters',
                     ),
                     array(
                         'id' => 3,
-                        'name' => 'count lines',
+                        'type' => 'count lines',
                     ),
                 ]
             );
