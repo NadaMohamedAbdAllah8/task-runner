@@ -16,6 +16,8 @@ class CreateTasks extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
 
+            $table->string('random_id');
+
             $table->string('project_id');
             $table->foreign('project_id')->references('id')->on('projects');
 

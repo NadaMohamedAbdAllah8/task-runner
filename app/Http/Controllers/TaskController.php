@@ -70,19 +70,20 @@ class TaskController extends Controller
         $fileName = Str::random(16) . time() . $file->getClientOriginalName();
 
         $filePath = config('global.filesPath');
-       
+
         if (!File::isDirectory($filePath)) {
             File::makeDirectory($filePath, 0777, true, true);
         }
 
         // move uploaded file
-      $file->move($filePath, $fileName);
-       
+        $file->move($filePath, $fileName);
+
         $task->project_id = $projectId;
         $task->status_id = config('global.runningStatusId');
         $task->type_id = $request->input('type_id');
         $task->file_name = $fileName;
         $task->file_path = $filePath;
+        $task->random_id = Str::random(16);
 
         //save
         try {

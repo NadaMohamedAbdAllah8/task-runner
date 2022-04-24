@@ -16,7 +16,7 @@ class Task extends Model
      */
     protected $fillable = [
         'project_id', 'status_id', 'type_id', 'file_name', 'file_path', 'no_of_occurrences', 'started_at',
-        'ended_at', 'failure_reason',
+        'ended_at', 'failure_reason', 'random_id',
     ];
 
     public function type()
