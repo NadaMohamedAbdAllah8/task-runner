@@ -7,7 +7,7 @@
 @section('content')
 
 <div class=" formdiv">
-          <form action="{{route('task.store')}}" method="POST">
+          <form action="{{route('task.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <h1>Create Task</h1>
@@ -20,7 +20,7 @@
                     <label for="task_type"><b>Task Type</b></label>
                     @foreach($taskTypes as $taskType)
                     <div class="form-check">
-                              <input class="form-check-input" type="radio" name="taskType" value={{$taskType->id}}
+                              <input class="form-check-input" type="radio" name="type_id" value={{$taskType->id}}
                               required>
                               <label class="form-check-label" for="flexRadioDefault1">
                                         {{$taskType->type}}
@@ -30,8 +30,8 @@
 
                     <div>
                               <label for="file"><b>Input File</b></label>
-                              <input type="file" accept=".txt" class="form-control form-control-lg" name="file"
-                                        id="password" required>
+                              <input type="file" accept=".txt" class="form-control form-control-lg" name="file" required
+                                        id="password">
                               <span class="text-muted">Allow formats: .txt</span>
                     </div>
 
