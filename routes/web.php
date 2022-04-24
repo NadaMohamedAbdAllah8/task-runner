@@ -36,6 +36,6 @@ Route::group(['middleware' => ['auth:user']], function () {
 
         Route::get('create', [TaskController::class, 'create'])->name('create');
 
-        Route::get('store', [TaskController::class, 'store'])->name('store');
+        Route::post('store', [TaskController::class, 'store'])->name('store');
     });
 });
