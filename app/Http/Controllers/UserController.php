@@ -70,6 +70,6 @@ class UserController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect('/user/login');
+        return redirect('/login')->with('success', 'Logged Out Successfully');
     }
 }
