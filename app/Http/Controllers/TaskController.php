@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Models\Task;
 use App\Models\TaskType;
+use App\Models\UserProjects;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
@@ -88,6 +90,15 @@ class TaskController extends Controller
         //save
         try {
             $task->save();
+
+            // save the user's project
+            $userProject = new UserProjects();
+
+            $userProject->user_id = Auth::guard('user')->user()->id;
+
+            $userProject->project_id = $projectId;
+
+            $userProject->save();
         } catch (\Exception $e) {
             return back()->with('error', 'saving failed' . $e->getMessage());
         }
