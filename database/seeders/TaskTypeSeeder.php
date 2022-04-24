@@ -23,11 +23,10 @@ class TaskTypeSeeder extends Seeder
                     ),
                     array(
                         'id' => 2,
-                        'type' => 'count characters',
-                    ),
-                    array(
-                        'id' => 3,
                         'type' => 'count lines',
+                    ), array(
+                        'id' => 3,
+                        'type' => 'count characters',
                     ),
                 ]
             );
