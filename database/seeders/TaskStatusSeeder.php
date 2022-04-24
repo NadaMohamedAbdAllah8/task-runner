@@ -19,15 +19,19 @@ class TaskStatusSeeder extends Seeder
                 [
                     array(
                         'id' => 1,
-                        'status' => 'running',
+                        'status' => 'Running',
                     ),
                     array(
                         'id' => 2,
-                        'status' => 'pass',
+                        'status' => 'Pass',
                     ),
                     array(
                         'id' => 3,
-                        'status' => 'fail',
+                        'status' => 'Fail',
+                    ),
+                    array(
+                        'id' => 4,
+                        'status' => 'Not running yet',
                     ),
                 ]
             );

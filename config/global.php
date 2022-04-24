@@ -13,6 +13,7 @@ return [
     'runningStatusId' => 1,
     'passStatusId' => 2,
     'failStatusId' => 3,
+    'notRunningYetId' => 4,
 
     // uploaded files path
     'filesPath' => base_path('storage/app/public/uploadedFiles/'),
