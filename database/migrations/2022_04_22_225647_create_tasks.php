@@ -25,7 +25,8 @@ class CreateTasks extends Migration
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('task_types');
 
-            $table->string('file');
+            $table->string('file_name');
+            $table->string('file_path');
 
             $table->integer('no_of_occurrences')->nullable();
 
